@@ -47,6 +47,7 @@ $(function() {
                 email: email,
                 msg: msg
             },
+            contentType: "application/json; charset=utf-8",
             datatype: 'json',
             cache: true,
             global: false,
