@@ -7,7 +7,7 @@
  */
 //Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
-
+header('Content-Type: application/json');
 require './vendor/autoload.php';
 
 $mail = new PHPMailer;
