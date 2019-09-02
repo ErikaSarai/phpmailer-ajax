@@ -29,7 +29,7 @@
             <div class="col-lg-8 mx-auto">
                     <h1>Formulario de Prueba</h1>
               <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-              <form name="sentMessage" id="contactForm" method="POST" action="">
+              <form name="sentMessage" id="contactForm" novalidate="novalidate">
                   <div id="success"></div>
                 <div class="control-group">
                   <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -69,11 +69,13 @@
   </div>
 
         <!-- Jquery.min.js -->
-        <script src="js/jquery.min.js"></script>
+        <!-- <script src="js/jquery.min.js"></script> -->
 
         <!-- jquery.validate.min.js -->
-        <script src="js/jquery-validate.min.js"></script>
+        <!-- <script src="js/jquery-validate.min.js"></script> -->
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Popper y bootstrap.min.js de bootstrap -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"  crossorigin="anonymous"></script>

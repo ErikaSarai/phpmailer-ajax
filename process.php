@@ -7,7 +7,7 @@
  */
 //Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
-header('Content-Type: application/json');
+
 require './vendor/autoload.php';
 
 $mail = new PHPMailer;
@@ -17,10 +17,11 @@ $name = $_POST['fullname'];
 $email = $_POST['email'];
 $phone = $_POST['mobile'];
 $msg = $_POST['msg'];
-
 $body ='<div style="background-color: #1E1E1E"><h1 align=center>Name: '.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['phone'].'</h1> </div>';
 
 $mail->isSMTP();
+
+
 //Enable SMTP debugging
 // 0 = off (for production use)
 // 1 = client messages
@@ -49,7 +50,6 @@ $mail->Subject = 'Form Submission: '.$_POST['subject'];
 
 
 $mail->msgHTML(($body));
-
 
 //send the message, check for errors
 if(!$mail->send()) {
