@@ -17,7 +17,7 @@ $name = $_POST['fullname'];
 $email = $_POST['email'];
 $phone = $_POST['mobile'];
 $msg = $_POST['msg'];
-$body ='<div style="background-color: #1E1E1E"><h1 align=center>Name: '.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['phone'].'</h1> </div>';
+$body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['phone'].'</h1> </div>';
 
 $mail->isSMTP();
 
