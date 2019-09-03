@@ -7,6 +7,7 @@
  */
 //Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
 
@@ -19,46 +20,53 @@ $phone = $_POST['mobile'];
 $msg = $_POST['msg'];
 $body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['phone'].'</h1> </div>';
 
-$mail->isSMTP();
-
-
+try{ 
+//Server settings
 //Enable SMTP debugging
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-$mail->SMTPDebug = 0;
-
+$mail->SMTPDebug = 1;
+$mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
-
-// $mail->Port = 465;
-$mail->Port = 587;
+$mail->SMTPAuth = true;
+$mail->Username = "william28ache@gmail.com";
+$mail->Password = "oqflykentpumvvmz";
 
 // $mail->SMTPSecure = 'ssl';
 $mail->SMTPSecure = 'tls';
+// $mail->Port = 465;
+$mail->Port = 587;
 
-$mail->SMTPAuth = true;
 
-$mail->Username = "william28ache@gmail.com";
-
-$mail->Password = "oqflykentpumvvmz";
-
+//Recipients
 $mail->setFrom($_POST['email'],$_POST['name']);
-
-$mail->addReplyTo($_POST['email'],$_POST['name']);
-
 $mail->addAddress('william28ache@gmail.com');
+$mail->addReplyTo($_POST['email'],$_POST['name']);
+$mail->addCC('cc@example.com');
+$mail->addBCC('bcc@example.com');
 
-$mail->Subject = 'Form Submission: '.$_POST['subject'];
 
-
+ // Content
+$mail->Subject = 'PHPMailer GMail SMTP test';
 $mail->msgHTML(($body));
 
-//send the message, check for errors
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'success';
+
+$mail->send();
+echo 'Message has been sent';
 }
+catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+
+
+//send the message, check for errors
+// if(!$mail->send()) {
+//     echo 'Message could not be sent.';
+//     echo 'Mailer Error: ' . $mail->ErrorInfo;
+// } else {
+//     echo 'success';
+// }
 
 ?>
