@@ -30,15 +30,17 @@ $mail->SMTPDebug = 0;
 
 $mail->Host = 'smtp.gmail.com';
 
+// $mail->Port = 465;
 $mail->Port = 587;
 
+// $mail->SMTPSecure = 'ssl';
 $mail->SMTPSecure = 'tls';
 
 $mail->SMTPAuth = true;
 
 $mail->Username = "william28ache@gmail.com";
 
-$mail->Password = "danielache28";
+$mail->Password = "oqflykentpumvvmz";
 
 $mail->setFrom($_POST['email'],$_POST['name']);
 
