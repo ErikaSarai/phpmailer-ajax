@@ -24,7 +24,7 @@ $name = $_POST['fullname'];
 $email = $_POST['email'];
 $phone = $_POST['mobile'];
 $msg = $_POST['msg'];
-$body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$email .'<br>Email: '.$name.'<br>Message: '.$msg.'<br>Phone: '.$phone.'</h1> </div>';
+$body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$_POST['fullname'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['mobile'].'</h1> </div>';
 //Server settings
 //Enable SMTP debugging
 // 0 = off (for production use)
@@ -41,9 +41,9 @@ $mail->Port = 587;
 
 
 //Recipients
-$mail->setFrom('william28ache@gmail.com',$name);
+$mail->setFrom('william28ache@gmail.com',$_POST['fullname']);
 $mail->addAddress('william28ache@gmail.com');
-$mail->addReplyTo('william28ache@gmail.com',$name);
+$mail->addReplyTo('william28ache@gmail.com',$_POST['fullname']);
 $mail->addCC('cc@example.com');
 $mail->addBCC('bcc@example.com');
 
