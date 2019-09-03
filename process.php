@@ -43,9 +43,9 @@ $mail->Port = 587;
 
 
 //Recipients
-$mail->setFrom($_POST['email'],$_POST['name']);
+$mail->setFrom('william28ache@gmail.com',$_POST['name']);
 $mail->addAddress('william28ache@gmail.com');
-$mail->addReplyTo($_POST['email'],$_POST['name']);
+$mail->addReplyTo('william28ache@gmail.com',$_POST['name']);
 $mail->addCC('cc@example.com');
 $mail->addBCC('bcc@example.com');
 
