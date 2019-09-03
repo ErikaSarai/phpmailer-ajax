@@ -16,14 +16,15 @@ require './vendor/autoload.php';
 
 $mail = new PHPMailer;
 
+
+
+try{
 // Form Data
 $name = $_POST['fullname'];
 $email = $_POST['email'];
 $phone = $_POST['mobile'];
 $msg = $_POST['msg'];
-$body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'<br>Phone: '.$_POST['phone'].'</h1> </div>';
-
-try{ 
+$body ='<div style="background-color: #9fffcb"><h1 align=center>Name: '.$email .'<br>Email: '.$name.'<br>Message: '.$msg.'<br>Phone: '.$phone.'</h1> </div>';
 //Server settings
 //Enable SMTP debugging
 // 0 = off (for production use)
@@ -35,17 +36,14 @@ $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = "william28ache@gmail.com";
 $mail->Password = "oqflykentpumvvmz";
-
-// $mail->SMTPSecure = 'ssl';
 $mail->SMTPSecure = 'tls';
-// $mail->Port = 465;
 $mail->Port = 587;
 
 
 //Recipients
-$mail->setFrom('william28ache@gmail.com',$_POST['name']);
+$mail->setFrom('william28ache@gmail.com',$name);
 $mail->addAddress('william28ache@gmail.com');
-$mail->addReplyTo('william28ache@gmail.com',$_POST['name']);
+$mail->addReplyTo('william28ache@gmail.com',$name);
 $mail->addCC('cc@example.com');
 $mail->addBCC('bcc@example.com');
 
@@ -62,14 +60,5 @@ catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
-
-
-//send the message, check for errors
-// if(!$mail->send()) {
-//     echo 'Message could not be sent.';
-//     echo 'Mailer Error: ' . $mail->ErrorInfo;
-// } else {
-//     echo 'success';
-// }
 
 ?>
